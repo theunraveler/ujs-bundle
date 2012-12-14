@@ -1,19 +1,20 @@
 (function ($) {
     $(document).ready(function() {
-        $('a[data-method]').each(function(index, el) {
-            var element = $(el),
-                action  = element.attr('href'),
-                method  = element.data('method');
-            $.get('/_internal/ujs-form/' + encodeURIComponent(encodeURIComponent(action)) + '/' + method, function(data) {
-                var form = $(data);
-                form.insertAfter(element);
-                element.click(function(e) {
-                    e.preventDefault();
-                    if (confirm(element.data('confirm') || 'Are you sure?')) {
-                        form.submit();
-                    }
-                });
-            });
+        $(document).on('click', 'a[data-method]', function(event) {
+            event.preventDefault();
+            var element = $(event.target);
+
+            // Ask for confirmation, return if it is cancelled.
+            if (!confirm(element.data('confirm') || 'Are you sure?')) {
+                return false;
+            }
+
+            // Append and submit the form.
+            $('<form>', { action: element.attr('href'), method: 'POST', style: 'display: none;' })
+                .append($('<input>', { type: 'hidden', name: '_method', value: element.data('method') }))
+                .append($('<input>', { type: 'hidden', name: $('meta[name=_ujs_csrf_token_name]').attr('content'), value: $('meta[name=_ujs_csrf_token]').attr('content') }))
+                .insertAfter(element)
+                .submit();
         });
     });
 }) (jQuery);
