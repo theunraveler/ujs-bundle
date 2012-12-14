@@ -1,0 +1,4 @@
+services:
+    ujs_form_controller:
+        class: TheUnraveler\UjsBundle\Controller\FormController
+        arguments: [@form.csrf_provider, @templating]

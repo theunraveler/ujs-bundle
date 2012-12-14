@@ -1,0 +1,6 @@
+_ujs_form:
+    pattern: /_internal/ujs-form/{action}/{method}
+    defaults: { _controller: ujs_form_controller:generateAction }
+    requirements:
+        method: GET|POST|PUT|PATCH|DELETE|OPTIONS
+        _method: GET
