@@ -1,7 +1,7 @@
 UjsBundle for Symfony 2
 =======================
 
-Description.
+An unobtrusive JavaScript bundle for Symfony 2. Allows for using non-GET routes with simple links.
 
 Dependencies
 ------------
