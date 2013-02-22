@@ -2,7 +2,7 @@
     $(document).ready(function() {
         $(document).on('click', 'a[data-method]', function(event) {
             event.preventDefault();
-            var element = $(event.target);
+            var element = $(event.target).data('method') ? $(event.target) : $(event.target).closest('a[data-method]');
 
             // Ask for confirmation, return if it is cancelled.
             if (!confirm(element.data('confirm') || 'Are you sure?')) {
