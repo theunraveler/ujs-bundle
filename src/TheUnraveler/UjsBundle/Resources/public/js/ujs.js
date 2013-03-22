@@ -10,9 +10,9 @@
             }
 
             // Append and submit the form.
-            $('<form>', { action: element.attr('href'), method: 'POST', style: 'display: none;', class: 'ujs-form' })
-                .append($('<input>', { type: 'hidden', name: '_method', value: element.data('method') }))
-                .append($('<input>', { type: 'hidden', name: $('meta[name=_ujs_csrf_token_name]').attr('content'), value: $('meta[name=_ujs_csrf_token]').attr('content') }))
+            $('<form>', { 'action': element.attr('href'), 'method': 'POST', 'style': 'display: none;', 'class': 'ujs-form' })
+                .append($('<input>', { 'type': 'hidden', 'name': '_method', 'value': element.data('method') }))
+                .append($('<input>', { 'type': 'hidden', 'name': $('meta[name=_ujs_csrf_token_name]').attr('content'), 'value': $('meta[name=_ujs_csrf_token]').attr('content') }))
                 .insertAfter(element)
                 .submit();
         });
