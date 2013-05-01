@@ -32,6 +32,10 @@ the text in the JavaScript confirm dialog.
     <a href="/posts/15" data-method="DELETE" data-confirm="Are you sure you
     want to delete this post?">Delete this post</a>
 
+If you set the `data-confirm` attribute to `false`, no confirmation message
+will be presented. Be careful with this, though, since browsers that do link
+prefetching may follow the link and perform destructive actions.
+
 Security
 --------
 
